@@ -4,7 +4,7 @@ import { callToast } from 'main/utils';
 import { dimensions } from 'main/config';
 import { useWindowDimensions } from 'data/hooks';
 import ReactPlayer from 'react-player';
-import { useEffect, useState, type FC } from 'react';
+import {  type FC } from 'react';
 
 export const AuthContent: FC = () => {
   const { width } = useWindowDimensions();
@@ -16,7 +16,7 @@ export const AuthContent: FC = () => {
       callToast.success('Copied !');
     });
   };
-  const [show, setShow] = useState(false);
+  
 
   return (
     <div className={'flex flex-col max-w-[1200px] m-auto gap-8 w-full h-full text-white'}>
