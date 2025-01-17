@@ -8,8 +8,8 @@ import {  useState, type FC } from 'react';
 
 export const AuthContent: FC = () => {
   const { width } = useWindowDimensions();
-  const token = '';
-  const pump = 'https://pump.fun/board';
+  const token = '3HUyUivLV5uSy6vpfRUukj16YkMWeZe2hS3u5UvRpump';
+  const pump = 'https://pump.fun/coin/3HUyUivLV5uSy6vpfRUukj16YkMWeZe2hS3u5UvRpump';
 
   const copy = (): void => {
     navigator.clipboard.writeText(token).then(() => {
