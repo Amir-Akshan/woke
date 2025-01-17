@@ -4,7 +4,7 @@ import { callToast } from 'main/utils';
 import { dimensions } from 'main/config';
 import { useWindowDimensions } from 'data/hooks';
 import ReactPlayer from 'react-player';
-import type { FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 
 export const AuthContent: FC = () => {
   const { width } = useWindowDimensions();
@@ -16,6 +16,7 @@ export const AuthContent: FC = () => {
       callToast.success('Copied !');
     });
   };
+  const [show, setShow] = useState(false);
 
   return (
     <div className={'flex flex-col max-w-[1200px] m-auto gap-8 w-full h-full text-white'}>
@@ -38,7 +39,9 @@ export const AuthContent: FC = () => {
       <h1 className={'text-center text-2xl tablet:text-5xl pb-1'}>Your First Anti Woke Agent</h1>
 
       <div className={'mx-auto aaa'}>
-        <ReactPlayer loop playing url={'./video1.mp4'} />
+      
+      <ReactPlayer loop playing={true} muted volume={100} controls url={'https://woke-lovat.vercel.app/video1.mp4'} />
+         
       </div>
 
       <div className={'flex justify-around'}>
