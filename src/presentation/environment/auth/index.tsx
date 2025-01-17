@@ -4,7 +4,7 @@ import { callToast } from 'main/utils';
 import { dimensions } from 'main/config';
 import { useWindowDimensions } from 'data/hooks';
 import ReactPlayer from 'react-player';
-import {  type FC } from 'react';
+import {  useState, type FC } from 'react';
 
 export const AuthContent: FC = () => {
   const { width } = useWindowDimensions();
@@ -16,10 +16,15 @@ export const AuthContent: FC = () => {
       callToast.success('Copied !');
     });
   };
-  
+
+  const [isMuted, setIsMuted] = useState(true);
+
+  const handleMouseMove = (): void => {
+    if (isMuted) setIsMuted(false);
+  };
 
   return (
-    <div className={'flex flex-col max-w-[1200px] m-auto gap-8 w-full h-full text-white'}>
+    <div onMouseDownCapture={handleMouseMove}className={'flex flex-col max-w-[1200px] m-auto gap-8 w-full h-full text-white'}>
       <style>
         {`
         video{
@@ -38,9 +43,9 @@ export const AuthContent: FC = () => {
 
       <h1 className={'text-center text-2xl tablet:text-5xl pb-1'}>Your First Anti Woke Agent</h1>
 
+      {isMuted&&<span className='text-center'>Unmute</span>}
       <div className={'mx-auto aaa'}>
-      
-      <ReactPlayer loop playing={true} muted volume={100} controls url={'https://woke-lovat.vercel.app/video1.mp4'} />
+      <ReactPlayer loop playing={true} muted={isMuted} volume={100}  url={'https://woke-lovat.vercel.app/video1.mp4'} />
          
       </div>
 
